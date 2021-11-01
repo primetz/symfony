@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+<style>
+    .container {
+        width: 100%;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+</style>
+
+<div class="container">
+    <div class="product">
+        <img src="https://via.placeholder.com/360x260" alt="{{ product.title }}">
+        <h2 class="product__title">{{ product.title }}</h2>
+        <p class="product__description">{{ product.description }}</p>
+        <span class="product__price">{{ product.price }} &dollar;</span>
+    </div>
+</div>
+{% endblock %}

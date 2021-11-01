@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All products{% endblock %}
+
+{% block body %}
+<style>
+    .container {
+        width: 100%;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+
+    .products-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .products-list__link {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container">
+    <ul class="products-list">
+        {% for product in allProducts %}
+        <li class="products-list__item">
+            <a href="/product/{{ product.id }}" class="products-list__link">
+                <img src="https://via.placeholder.com/360x260" alt="{{ product.title }}">
+                <h2 class="products-list__title">{{ product.title }}</h2>
+                <p class="product-list__description">{{ product.description }}</p>
+                <span class="product-list__price">{{ product.price }} &dollar;</span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
